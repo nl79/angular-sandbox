@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { ServerComponent } from './server/server.component';
 import { ServersComponent } from './servers/servers.component';
 
+// Main ng Module
 @NgModule({
   declarations: [
     AppComponent,
