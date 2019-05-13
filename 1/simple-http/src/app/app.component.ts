@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { ServerService } from './server.service';
-
+import { Response, Http } from "@angular/http";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  appName = this.serverService.getAppName();
   servers = [
     {
       name: 'Testserver',
@@ -20,8 +21,20 @@ export class AppComponent {
     }
   ];
 
-  constructor(private serverService: ServerService) {
+  constructor(private serverService: ServerService,
+    private http: Http) {
 
+  }
+  onGet() {
+    this.serverService.getServers().subscribe(
+      (data) => {
+        console.log('data', data);
+        this.servers = data;
+      },
+      (error) => {
+        console.log('error', error);
+      }
+    )
   }
   onSave() {
     this.serverService.storeServers(this.servers).subscribe(
