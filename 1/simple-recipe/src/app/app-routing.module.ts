@@ -18,36 +18,6 @@ const appRoutes: Routes = [
   // the default root route must have a pathMath option set to full because it will technically
   // match every route
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
-  {
-    path: 'recipes',
-    component: RecipesComponent,
-    children: [
-      {
-        path: '',
-        component: RecipeStartComponent
-      },
-      {
-        path: 'new',
-        component: RecipeEditComponent,
-        canActivate: [
-          AuthGuard
-        ]
-      },
-      {
-        path: ":id",
-        component: RecipeDetailComponent
-      },
-
-      {
-        path: ':id/edit',
-        component: RecipeEditComponent,
-        canActivate: [
-          AuthGuard
-        ]
-      }
-    ]
-  },
-  { path: 'shopping-list', component: ShoppingListComponent},
   { path: 'signup', component: SignupComponent},
   { path: 'signin', component: SigninComponent}
 

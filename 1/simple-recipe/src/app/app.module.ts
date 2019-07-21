@@ -8,10 +8,12 @@ import { ShoppingListComponent } from "./shopping-list/shopping-list.component";
 import { ShoppingEditComponent } from "./shopping-list/shopping-edit/shopping-edit.component";
 import { DropdownDirective } from "./shared/dropdown.directive";
 import { ShoppingListService } from "./shopping-list/shoppig-list.service";
+import { ShoppingListModule } from "./shopping-list/shopping-list.module";
 
 import { AppRoutingModule } from "./app-routing.module";
 
 import { RecipeService } from "./recipes/recipe.service";
+import { RecipesModule } from "./recipes/recipes.module"
 import { DataStorageService } from "./shared/data-storage.service";
 import { HttpModule } from "@angular/http";
 import { SignupComponent } from "./auth/signup/signup.component";
@@ -22,8 +24,6 @@ import { AuthGuard } from "./auth/auth-guard.service";
   declarations: [
     AppComponent,
     HeaderComponent,
-    ShoppingListComponent,
-    ShoppingEditComponent,
     DropdownDirective,
     SignupComponent,
     SigninComponent
@@ -33,7 +33,9 @@ import { AuthGuard } from "./auth/auth-guard.service";
     FormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    RecipesModule,
+    ShoppingListModule
   ],
   providers: [
     ShoppingListService,
