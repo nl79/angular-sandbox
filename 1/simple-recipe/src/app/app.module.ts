@@ -10,6 +10,8 @@ import { DropdownDirective } from "./shared/dropdown.directive";
 import { ShoppingListService } from "./shopping-list/shoppig-list.service";
 import { ShoppingListModule } from "./shopping-list/shopping-list.module";
 
+import { AlertComponent } from './shared/alert.component';
+
 import { AppRoutingModule } from "./app-routing.module";
 
 import { RecipeService } from "./recipes/recipe.service";
@@ -26,7 +28,8 @@ import { AuthGuard } from "./auth/auth-guard.service";
     HeaderComponent,
     DropdownDirective,
     SignupComponent,
-    SigninComponent
+    SigninComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
