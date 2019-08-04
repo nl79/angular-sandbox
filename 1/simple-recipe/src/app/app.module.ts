@@ -22,6 +22,9 @@ import { SignupComponent } from "./auth/signup/signup.component";
 import { SigninComponent } from "./auth/signin/signin.component";
 import { AuthService } from "./auth/auth.service";
 import { AuthGuard } from "./auth/auth-guard.service";
+import { AuthComponent} from './auth/auth.component';
+import { HttpClientModule } from '@angular/common/http';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +32,9 @@ import { AuthGuard } from "./auth/auth-guard.service";
     DropdownDirective,
     SignupComponent,
     SigninComponent,
-    AlertComponent
+    AlertComponent,
+    AuthComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,8 @@ import { AuthGuard } from "./auth/auth-guard.service";
     ReactiveFormsModule,
     HttpModule,
     RecipesModule,
-    ShoppingListModule
+    ShoppingListModule,
+    HttpClientModule
   ],
   providers: [
     ShoppingListService,

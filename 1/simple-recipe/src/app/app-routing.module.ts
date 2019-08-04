@@ -13,13 +13,15 @@ import { RecipeEditComponent } from "./recipes/recipe-edit/recipe-edit.component
 import { SignupComponent } from "./auth/signup/signup.component";
 import { SigninComponent } from "./auth/signin/signin.component";
 import { AuthGuard } from "./auth/auth-guard.service";
+import { AuthComponent } from "./auth/auth.component";
 
 const appRoutes: Routes = [
   // the default root route must have a pathMath option set to full because it will technically
   // match every route
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
   { path: 'signup', component: SignupComponent},
-  { path: 'signin', component: SigninComponent}
+  { path: 'signin', component: SigninComponent},
+  { path: 'auth', component: AuthComponent}
 
 ]
 
