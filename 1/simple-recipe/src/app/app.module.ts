@@ -10,21 +10,22 @@ import { DropdownDirective } from "./shared/dropdown.directive";
 import { ShoppingListService } from "./shopping-list/shoppig-list.service";
 import { ShoppingListModule } from "./shopping-list/shopping-list.module";
 
-import { AlertComponent } from './shared/alert.component';
+import { AlertComponent } from "./shared/alert.component";
 
 import { AppRoutingModule } from "./app-routing.module";
 
 import { RecipeService } from "./recipes/recipe.service";
-import { RecipesModule } from "./recipes/recipes.module"
+import { RecipesModule } from "./recipes/recipes.module";
 import { DataStorageService } from "./shared/data-storage.service";
 import { HttpModule } from "@angular/http";
 import { SignupComponent } from "./auth/signup/signup.component";
 import { SigninComponent } from "./auth/signin/signin.component";
 import { AuthService } from "./auth/auth.service";
 import { AuthGuard } from "./auth/auth-guard.service";
-import { AuthComponent} from './auth/auth.component';
-import { HttpClientModule } from '@angular/common/http';
-import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component'
+import { AuthComponent } from "./auth/auth.component";
+import { AuthInterceptorService } from "./auth/auth.service.interceptor";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { LoadingSpinnerComponent } from "./shared/loading-spinner/loading-spinner.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +52,12 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
     RecipeService,
     DataStorageService,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

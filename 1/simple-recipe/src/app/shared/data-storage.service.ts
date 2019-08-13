@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { RecipeService } from '../recipes/recipe.service';
 import { Recipe } from "../recipes/recipe.model";
 
-import { map } from 'rxjs/operators';
+import { map, take } from 'rxjs/operators';
 import { AuthService } from "../auth/auth.service";
 @Injectable()
 export class DataStorageService {
@@ -22,7 +22,14 @@ export class DataStorageService {
   }
 
   getRecipes() {
+
+    this.authService.user.pipe(take(1)).subscribe(user => {
+      console.log('user', user);
+    })
+
     const token = this.authService.getToken();
+
+
 
     return this.http.get(this.url + '/recipes.json?auth=' + token)
       .pipe(
