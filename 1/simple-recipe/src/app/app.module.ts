@@ -21,11 +21,12 @@ import { HttpModule } from "@angular/http";
 import { SignupComponent } from "./auth/signup/signup.component";
 import { SigninComponent } from "./auth/signin/signin.component";
 import { AuthService } from "./auth/auth.service";
-import { AuthGuard } from "./auth/auth-guard.service";
+// import { AuthGuard } from "./auth/auth-guard.service";
 import { AuthComponent } from "./auth/auth.component";
 import { AuthInterceptorService } from "./auth/auth.service.interceptor";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { LoadingSpinnerComponent } from "./shared/loading-spinner/loading-spinner.component";
+import { PlaceholderDirective } from "./shared/placeholder.directive";
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,8 @@ import { LoadingSpinnerComponent } from "./shared/loading-spinner/loading-spinne
     SigninComponent,
     AlertComponent,
     AuthComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    PlaceholderDirective
   ],
   imports: [
     BrowserModule,
@@ -52,13 +54,14 @@ import { LoadingSpinnerComponent } from "./shared/loading-spinner/loading-spinne
     RecipeService,
     DataStorageService,
     AuthService,
-    AuthGuard,
+    // AuthGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptorService,
       multi: true
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AlertComponent]
 })
 export class AppModule {}

@@ -12,7 +12,7 @@ import { RecipeDetailComponent } from "./recipes/recipe-detail/recipe-detail.com
 import { RecipeEditComponent } from "./recipes/recipe-edit/recipe-edit.component";
 import { SignupComponent } from "./auth/signup/signup.component";
 import { SigninComponent } from "./auth/signin/signin.component";
-import { AuthGuard } from "./auth/auth-guard.service";
+// import { AuthGuard } from "./auth/auth-guard.service";
 import { AuthComponent } from "./auth/auth.component";
 
 const appRoutes: Routes = [
