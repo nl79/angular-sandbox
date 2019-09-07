@@ -40,7 +40,7 @@ import { PlaceholderDirective } from "./shared/placeholder.directive";
     PlaceholderDirective
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({appId: "my-app"}),
     FormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
